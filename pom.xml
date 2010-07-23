@@ -1,24 +1,57 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<artifactId>seam-parent</artifactId>
-		<groupId>org.jboss.seam</groupId>
-		<version>2</version>
-                <relativePath />
-	</parent>
+   <parent>
+      <artifactId>seam-parent</artifactId>
+      <groupId>org.jboss.seam</groupId>
+      <version>2</version>
+      <relativePath />
+   </parent>
 
-        <groupId>org.jboss.seam.jclouds</groupId>
-	<artifactId>jclouds</artifactId>
-	<version>3.0.0-SNAPSHOT</version>
+   <groupId>org.jboss.seam.jclouds</groupId>
+   <artifactId>jclouds</artifactId>
+   <version>3.0.0-SNAPSHOT</version>
 
-	<packaging>jar</packaging>
-	<name>CDI/JClouds Integration</name>
+   <packaging>jar</packaging>
+   <name>CDI/JClouds Integration</name>
 
-	<dependencies>
-	</dependencies>
+   <properties>
+      <seam.version>3.0.0.b01</seam.version>
+   </properties>
 
-	<profiles>
-	</profiles>
+   <dependencyManagement>
+      <dependencies>
+         <dependency>
+            <groupId>org.jboss.seam</groupId>
+            <artifactId>seam</artifactId>
+            <version>${seam.version}</version>
+            <scope>import</scope>
+            <type>pom</type>
+         </dependency>
+
+         <!-- JClouds Dependencies -->
+         <dependency>
+            <groupId>org.jclouds</groupId>
+            <artifactId>jclouds-blobstore</artifactId>
+            <version>1.0-beta-6</version>
+         </dependency>
+      </dependencies>
+   </dependencyManagement>
+
+   <dependencies>
+      <dependency>
+         <groupId>javax.enterprise</groupId>
+         <artifactId>cdi-api</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.jclouds</groupId>
+         <artifactId>jclouds-blobstore</artifactId>
+         <version>1.0-beta-6</version>
+      </dependency>
+   </dependencies>
+
+   <profiles>
+   </profiles>
 
 </project>
