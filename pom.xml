@@ -18,6 +18,7 @@
 
    <properties>
       <seam.version>3.0.0.b01</seam.version>
+      <jclouds.version>1.0-beta-6</jclouds.version>
    </properties>
 
    <dependencyManagement>
@@ -34,7 +35,17 @@
          <dependency>
             <groupId>org.jclouds</groupId>
             <artifactId>jclouds-blobstore</artifactId>
-            <version>1.0-beta-6</version>
+            <version>${jclouds.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>org.jclouds</groupId>
+            <artifactId>jclouds-aws</artifactId>
+            <version>${jclouds.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>org.jboss.weld</groupId>
+            <artifactId>weld-extensions</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
          </dependency>
       </dependencies>
    </dependencyManagement>
@@ -45,9 +56,16 @@
          <artifactId>cdi-api</artifactId>
       </dependency>
       <dependency>
+         <groupId>org.jboss.weld</groupId>
+         <artifactId>weld-extensions</artifactId>
+      </dependency>
+      <dependency>
          <groupId>org.jclouds</groupId>
          <artifactId>jclouds-blobstore</artifactId>
-         <version>1.0-beta-6</version>
+      </dependency>
+      <dependency>
+         <groupId>org.jclouds</groupId>
+         <artifactId>jclouds-aws</artifactId>
       </dependency>
    </dependencies>
 
