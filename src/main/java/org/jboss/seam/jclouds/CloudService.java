@@ -37,25 +37,13 @@ import org.jboss.weld.extensions.bean.generic.GenericConfiguration;
 @Retention(RUNTIME)
 @Target({METHOD, FIELD, PARAMETER, TYPE})
 @GenericConfiguration
-public @interface Service
+public @interface CloudService
 {
    
    /**
     * The provider you are using (see http://code.google.com/p/jclouds/wiki/BlobStore#Supported_Providers)
     * 
     */
-   String provider();
-   
-   /**
-    * The account you are using
-    * 
-    */
-   String account();
-   
-   /**
-    * The secret key for the account you are using
-    * 
-    */
-   String key();
+   String value();
    
 }

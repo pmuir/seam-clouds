@@ -1,25 +1,36 @@
 package org.jboss.seam.jclouds;
 
-import javax.annotation.PreDestroy;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 
 import org.jboss.weld.extensions.bean.generic.Generic;
+import org.jboss.weld.extensions.bean.generic.GenericProduct;
 import org.jclouds.blobstore.AsyncBlobStore;
 import org.jclouds.blobstore.BlobStore;
 import org.jclouds.blobstore.BlobStoreContext;
 import org.jclouds.blobstore.BlobStoreContextFactory;
 
-@Generic(Service.class)
+@Generic(CloudService.class)
 public class BlobStoreManager
 {
    
-   private final BlobStoreContext context;
+   @Inject
+   private BlobStoreContextFactory factory;
+   
+   @Inject @GenericProduct
+   private Credentials credentials;
    
    @Inject
-   public BlobStoreManager(BlobStoreContextFactory factory, Service service)
+   private CloudService cloudService;
+   
+   private BlobStoreContext context;
+   
+   @SuppressWarnings("unused")
+   @PostConstruct
+   private void init()
    {
-      this.context = factory.createContext(service.provider(), service.account(), service.key()); 
+      this.context = this.factory.createContext(cloudService.value(), credentials.getAccount(), credentials.getKey());
    }
    
    @Produces
@@ -38,13 +49,6 @@ public class BlobStoreManager
    public AsyncBlobStore getAsyncBlobStore()
    {
       return context.getAsyncBlobStore();
-   }
-   
-   @SuppressWarnings("unused")
-   @PreDestroy
-   private void cleanup()
-   {
-      context.close();
    }
    
 }
