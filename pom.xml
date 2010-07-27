@@ -56,6 +56,12 @@
          <groupId>javax.enterprise</groupId>
          <artifactId>cdi-api</artifactId>
       </dependency>
+
+      <dependency>
+         <groupId>javax.el</groupId>
+         <artifactId>el-api</artifactId>
+         <optional>true</optional>
+      </dependency>
       <dependency>
          <groupId>org.jboss.weld</groupId>
          <artifactId>weld-extensions</artifactId>
@@ -95,6 +101,18 @@
                <groupId>org.jboss.arquillian.container</groupId>
                <artifactId>arquillian-weld-embedded</artifactId>
                <version>${arquillian.version}</version>
+               <scope>test</scope>
+            </dependency>
+
+            <dependency>
+               <groupId>org.jboss.weld</groupId>
+               <artifactId>weld-core</artifactId>
+               <scope>test</scope>
+            </dependency>
+
+            <dependency>
+               <groupId>org.slf4j</groupId>
+               <artifactId>slf4j-simple</artifactId>
                <scope>test</scope>
             </dependency>
          </dependencies>
