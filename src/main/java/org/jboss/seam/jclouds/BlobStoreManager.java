@@ -1,6 +1,7 @@
 package org.jboss.seam.jclouds;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 
@@ -49,6 +50,12 @@ public class BlobStoreManager
    public AsyncBlobStore getAsyncBlobStore()
    {
       return context.getAsyncBlobStore();
+   }
+   
+   @PreDestroy
+   private void preDestroy()
+   {
+      this.context.close();
    }
    
 }
