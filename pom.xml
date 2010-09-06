@@ -20,10 +20,10 @@
       <seam.version>3.0.0.b01</seam.version>
       <jclouds.version>1.0-beta-6</jclouds.version>
       <infinispan.version>4.1.0.FINAL</infinispan.version>
-      <arquillian.version>1.0.0.Alpha3</arquillian.version>
-      <weld.version>1.0.1-SP4</weld.version>
+      <arquillian.version>1.0.0.Alpha4</arquillian.version>
+      <weld.version>1.1.0.Beta1</weld.version>
       <weld.extensions.version>1.0.0-SNAPSHOT</weld.extensions.version>
-      <cdi.api.version>1.0-SP1</cdi.api.version>
+      <cdi.api.version>1.0-SP2</cdi.api.version>
    </properties>
 
    <dependencyManagement>
@@ -118,7 +118,7 @@
          <dependencies>
             <dependency>
                <groupId>org.jboss.arquillian.container</groupId>
-               <artifactId>arquillian-weld-se-embedded-1</artifactId>
+               <artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
                <version>${arquillian.version}</version>
                <scope>test</scope>
             </dependency>
@@ -135,6 +135,12 @@
                <artifactId>validation-api</artifactId>
                <scope>test</scope>
                <version>1.0.0.GA</version>
+            </dependency>
+            
+            <dependency>
+               <groupId>javax.servlet</groupId>
+               <artifactId>servlet-api</artifactId>
+               <version>2.5</version>
             </dependency>
 
             <dependency>
