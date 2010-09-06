@@ -5,7 +5,7 @@ import javax.enterprise.inject.Produces;
 import org.jboss.seam.jclouds.CloudService;
 import org.jboss.seam.jclouds.Credentials;
 
-public class TestConfiguration
+public class Config
 {
 
    public static final String ACCESS_KEY_ID_PROPERTY_NAME = "aws.accessKeyId";
@@ -14,7 +14,7 @@ public class TestConfiguration
    private final String accessKeyId;
    private final String secretAccessKey;
    
-   public TestConfiguration()
+   public Config()
    {
       if (System.getProperty(ACCESS_KEY_ID_PROPERTY_NAME) == null)
       {
