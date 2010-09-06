@@ -89,6 +89,21 @@
       </dependency>
 
    </dependencies>
+   
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+               <systemProperties>
+                  <aws.accessKeyId>${aws.accessKeyId}</aws.accessKeyId>
+                  <aws.secretAccessKey>${aws.secretAccessKet}</aws.secretAccessKey>
+               </systemProperties>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
 
    <profiles>
       <profile>
