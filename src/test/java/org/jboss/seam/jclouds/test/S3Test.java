@@ -49,7 +49,9 @@ public class S3Test
    @Deployment
    public static Archive<?> deploy()
    {
-      return ShrinkWrap.create("test.jar", JavaArchive.class).addPackage(S3Test.class.getPackage()).addPackage(CloudService.class.getPackage());
+      return ShrinkWrap.create(JavaArchive.class, "test.jar")
+         .addPackage(S3Test.class.getPackage())
+         .addPackage(CloudService.class.getPackage());
    }
 
    // Inject the S3 BlobStore, using the credentials from TestConfiguration
