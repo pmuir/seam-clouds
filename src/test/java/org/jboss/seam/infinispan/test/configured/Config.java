@@ -23,5 +23,22 @@ public class Config
       configuration.setEvictionMaxEntries(1);
       return configuration;
    }
+   
+   
+   /**
+    * Configure a "small" cache (with a pretty low number of entries), and associate
+    * it with the qualifier {@link Small}.
+    * 
+    * This will use the default cache container.
+    */
+   @Produces
+   @Infinispan("small")
+   @Small
+   public Configuration getSmallConfiguration()
+   {
+      Configuration configuration = new Configuration();
+      configuration.setEvictionMaxEntries(10);
+      return configuration;
+   }
 
 }

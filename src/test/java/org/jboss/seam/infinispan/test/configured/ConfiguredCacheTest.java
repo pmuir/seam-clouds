@@ -34,16 +34,29 @@ public class ConfiguredCacheTest
    }
    
    /**
-    * Inject a cache configured by application
+    * Inject a cache configured by the application
     */
    @Inject @Tiny
    private AdvancedCache<String, String> tinyCache;
+   
+   /**
+    * Inject a cache configured by application
+    */
+   @Inject @Small
+   private AdvancedCache<String, String> smallCache;
    
    @Test
    public void testTinyCache()
    {
       // Check that we have the correctly configured cache
       assertEquals(1, tinyCache.getConfiguration().getEvictionMaxEntries());
+   }
+
+   @Test
+   public void testSmallCache()
+   {
+      // Check that we have the correctly configured cache
+      assertEquals(10, smallCache.getConfiguration().getEvictionMaxEntries());
    }
 
 }
