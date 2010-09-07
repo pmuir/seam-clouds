@@ -9,12 +9,12 @@
       <relativePath />
    </parent>
 
-   <groupId>org.jboss.seam.jclouds</groupId>
-   <artifactId>jclouds</artifactId>
+   <groupId>org.jboss.seam.clouds</groupId>
+   <artifactId>seam-clouds</artifactId>
    <version>3.0.0-SNAPSHOT</version>
 
    <packaging>jar</packaging>
-   <name>CDI/JClouds Integration</name>
+   <name>Seam Clouds</name>
 
    <properties>
       <seam.version>3.0.0.b01</seam.version>
