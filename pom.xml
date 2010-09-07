@@ -118,8 +118,14 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
                <systemProperties>
-                  <aws.accessKeyId>${aws.accessKeyId}</aws.accessKeyId>
-                  <aws.secretAccessKey>${aws.secretAccessKet}</aws.secretAccessKey>
+                  <property>
+                     <name>aws.accessKeyId</name>
+                     <value>${aws.accessKeyId}</value>
+                  </property>
+                  <property>
+                     <name>aws.secretAccessKey</name>
+                     <value>${aws.secretAccessKey}</value>
+                  </property>
                </systemProperties>
             </configuration>
          </plugin>
