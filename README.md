@@ -22,7 +22,7 @@ Running the tests
 To run the tests, you must have an AWS account, and sign up for S3. Having done this,
 add this profile to your `settings.xml`:
 
-`      <profile>
+      <profile>
          <id>aws</id>
          <activation>
             <property>
@@ -36,7 +36,7 @@ add this profile to your `settings.xml`:
             <!-- Your AWS Secret Access Key-->
             <aws.secretAccessKey></aws.secretAccessKey>
          </properties>
-      </profile>`
+      </profile>
 
 
 Running the tests from Eclipse
@@ -44,5 +44,5 @@ Running the tests from Eclipse
 
 To run the tests from Eclipse, you'll need to configure two _Program Arguments_ in the test's _Run Configuration_:
 
-`-Daws.accessKeyId=<AccessKeyId>
--Daws.secretAccessKey=<SecretAccessKey>`
+    -Daws.accessKeyId=<AccessKeyId>
+    -Daws.secretAccessKey=<SecretAccessKey>
