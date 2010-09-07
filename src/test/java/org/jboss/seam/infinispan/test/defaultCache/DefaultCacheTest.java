@@ -50,7 +50,12 @@ public class DefaultCacheTest
       cache.put("manik", "Sri Lankan");
       assertEquals("British", cache.get("pete"));
       assertEquals("Sri Lankan", cache.get("manik"));
-      // Check that the advanced cache contains the same data as the simple cache
+      /*
+       * Check that the advanced cache contains the same data as the simple
+       * cache. As we can inject either Cache or AdvancedCache, this is double
+       * checking that they both refer to the same underlying impl and Seam
+       * Clouds isn't returning the wrong thing.
+       */
       assertEquals("British", advancedCache.get("pete"));
       assertEquals("Sri Lankan", advancedCache.get("manik"));
    }
