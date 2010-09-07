@@ -21,7 +21,7 @@
       <jclouds.version>1.0-beta-6</jclouds.version>
       <infinispan.version>4.1.0.FINAL</infinispan.version>
       <arquillian.version>1.0.0.Alpha4</arquillian.version>
-      <weld.version>1.1.0.Beta1</weld.version>
+      <weld.version>1.1.0-SNAPSHOT</weld.version>
       <weld.extensions.version>1.0.0-SNAPSHOT</weld.extensions.version>
       <cdi.api.version>1.0-SP2</cdi.api.version>
    </properties>
@@ -77,6 +77,25 @@
          <artifactId>jclouds-aws</artifactId>
       </dependency>
 
+      <dependency>
+         <groupId>org.infinispan</groupId>
+         <artifactId>infinispan-core</artifactId>
+         <version>${infinispan.version}</version>
+         <exclusions>
+            <exclusion>
+               <groupId>log4j</groupId>
+               <artifactId>log4j</artifactId>
+            </exclusion>
+            <exclusion>
+               <groupId>org.jboss.javaee</groupId>
+               <artifactId>jboss-transaction-api</artifactId>
+            </exclusion>
+            <exclusion>
+               <artifactId>jboss-common-core</artifactId>
+               <groupId>org.jboss</groupId>
+            </exclusion>
+         </exclusions>
+      </dependency>
 
       <dependency>
          <groupId>junit</groupId>

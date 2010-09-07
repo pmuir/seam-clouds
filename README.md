@@ -10,6 +10,12 @@ JClouds
 Currently, support for JClouds BlobStore is provided.
 
 
+Infinispan
+----------
+
+Currently, support for Inifispan's Cache API is provided.
+
+
 Running the tests
 -----------------
 

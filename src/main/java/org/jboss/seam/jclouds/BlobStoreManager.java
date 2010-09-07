@@ -52,6 +52,7 @@ public class BlobStoreManager
       return context.getAsyncBlobStore();
    }
    
+   @SuppressWarnings("unused")
    @PreDestroy
    private void preDestroy()
    {
