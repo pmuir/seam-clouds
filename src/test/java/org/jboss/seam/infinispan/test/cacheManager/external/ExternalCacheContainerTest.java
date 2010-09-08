@@ -1,5 +1,6 @@
 package org.jboss.seam.infinispan.test.cacheManager.external;
 
+import static org.jboss.seam.infinispan.Deployments.baseDeployment;
 import static org.junit.Assert.assertEquals;
 
 import javax.inject.Inject;
@@ -7,6 +8,7 @@ import javax.inject.Inject;
 import org.infinispan.AdvancedCache;
 import org.jboss.arquillian.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.seam.infinispan.Deployments;
 import org.jboss.seam.infinispan.Infinispan;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -28,9 +30,8 @@ public class ExternalCacheContainerTest
    @Deployment
    public static Archive<?> deployment()
    {
-      return ShrinkWrap.create(JavaArchive.class, "test.jar")
-      .addPackage(ExternalCacheContainerTest.class.getPackage())
-      .addPackage(Infinispan.class.getPackage());
+      return baseDeployment()
+      .addPackage(ExternalCacheContainerTest.class.getPackage());
    }
    
    @Inject @Large

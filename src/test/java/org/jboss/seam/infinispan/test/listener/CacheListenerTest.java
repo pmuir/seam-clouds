@@ -1,4 +1,4 @@
-package org.jboss.seam.infinispan.test.configured;
+package org.jboss.seam.infinispan.test.listener;
 
 import static org.jboss.seam.infinispan.Deployments.baseDeployment;
 import static org.junit.Assert.assertEquals;
@@ -23,14 +23,14 @@ import org.junit.runner.RunWith;
  *
  */
 @RunWith(Arquillian.class)
-public class ConfiguredCacheTest
+public class CacheListenerTest
 {
    
    @Deployment
    public static Archive<?> deployment()
    {
       return baseDeployment()
-         .addPackage(ConfiguredCacheTest.class.getPackage());
+         .addPackage(CacheListenerTest.class.getPackage());
    }
    
    /**

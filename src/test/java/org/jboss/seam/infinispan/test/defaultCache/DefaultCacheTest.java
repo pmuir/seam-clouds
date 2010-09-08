@@ -1,5 +1,6 @@
 package org.jboss.seam.infinispan.test.defaultCache;
 
+import static org.jboss.seam.infinispan.Deployments.baseDeployment;
 import static org.junit.Assert.assertEquals;
 
 import javax.inject.Inject;
@@ -28,9 +29,8 @@ public class DefaultCacheTest
    @Deployment
    public static Archive<?> deployment()
    {
-      return ShrinkWrap.create(JavaArchive.class, "test.jar")
-      .addPackage(DefaultCacheTest.class.getPackage())
-      .addPackage(Infinispan.class.getPackage());
+      return baseDeployment()
+         .addPackage(DefaultCacheTest.class.getPackage());
    }
    
    /**

@@ -1,5 +1,6 @@
 package org.jboss.seam.infinispan.test.cacheManager.programatic;
 
+import static org.jboss.seam.infinispan.Deployments.baseDeployment;
 import static org.junit.Assert.assertEquals;
 
 import javax.inject.Inject;
@@ -28,9 +29,8 @@ public class ProgramaticCacheContainerTest
    @Deployment
    public static Archive<?> deployment()
    {
-      return ShrinkWrap.create(JavaArchive.class, "test.jar")
-      .addPackage(ProgramaticCacheContainerTest.class.getPackage())
-      .addPackage(Infinispan.class.getPackage());
+      return baseDeployment()
+      .addPackage(ProgramaticCacheContainerTest.class.getPackage());
    }
    
    @Inject @Small

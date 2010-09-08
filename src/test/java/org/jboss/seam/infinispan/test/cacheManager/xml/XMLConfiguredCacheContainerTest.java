@@ -1,5 +1,6 @@
 package org.jboss.seam.infinispan.test.cacheManager.xml;
 
+import static org.jboss.seam.infinispan.Deployments.baseDeployment;
 import static org.junit.Assert.assertEquals;
 
 import javax.inject.Inject;
@@ -29,7 +30,8 @@ public class XMLConfiguredCacheContainerTest
    @Deployment
    public static Archive<?> deployment()
    {
-      return ShrinkWrap.create(JavaArchive.class, "test.jar").addPackage(XMLConfiguredCacheContainerTest.class.getPackage()).addPackage(Infinispan.class.getPackage());
+      return baseDeployment()
+         .addPackage(XMLConfiguredCacheContainerTest.class.getPackage());
    }
 
    @Inject
