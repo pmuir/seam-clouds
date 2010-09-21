@@ -142,9 +142,9 @@
          </activation>
          <dependencies>
             <dependency>
-               <groupId>org.jboss.arquillian.container</groupId>
+               <groupId>org.jboss.weld.arquillian.container</groupId>
                <artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
-               <version>${arquillian.version}</version>
+               <version>${weld.version}</version>
                <scope>test</scope>
             </dependency>
             
