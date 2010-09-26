@@ -28,8 +28,8 @@ import javax.enterprise.inject.spi.Producer;
 import org.infinispan.config.Configuration;
 import org.infinispan.manager.CacheContainer;
 import org.infinispan.notifications.Listener;
-import org.jboss.weld.extensions.annotated.AnnotatedTypeBuilder;
 import org.jboss.weld.extensions.bean.generic.GenericLiteral;
+import org.jboss.weld.extensions.reflection.annotated.AnnotatedTypeBuilder;
 
 public class InfinispanExtension implements Extension
 {
