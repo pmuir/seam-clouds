@@ -64,13 +64,5 @@ public class GenericCacheManager<K, V>
       }
       return cache;
    }
-   
-   @Produces
-   // Needing both this and getAdvancedCache is an odd artifact of the generic bean extension
-   // See WELDX-135, eventually it should go away
-   public Cache<K, V> getCache()
-   {
-      return getAdvancedCache();
-   }
 
 }
