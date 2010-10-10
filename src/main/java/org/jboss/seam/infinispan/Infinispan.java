@@ -25,7 +25,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import org.infinispan.config.Configuration;
 import org.jboss.weld.extensions.bean.generic.GenericConfiguration;
+import org.jboss.weld.extensions.bean.generic.GenericType;
 
 /**
  * Configure an Infinispan Cache
@@ -36,7 +38,7 @@ import org.jboss.weld.extensions.bean.generic.GenericConfiguration;
 
 @Retention(RUNTIME)
 @Target({METHOD, FIELD, PARAMETER, TYPE})
-@GenericConfiguration
+@GenericType(Configuration.class)
 public @interface Infinispan
 {
    

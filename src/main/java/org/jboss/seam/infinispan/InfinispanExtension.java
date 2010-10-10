@@ -10,25 +10,20 @@ import java.util.Set;
 
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.spi.Annotated;
-import javax.enterprise.inject.spi.AnnotatedField;
 import javax.enterprise.inject.spi.AnnotatedMember;
-import javax.enterprise.inject.spi.AnnotatedParameter;
 import javax.enterprise.inject.spi.AnnotatedType;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.BeforeBeanDiscovery;
 import javax.enterprise.inject.spi.Extension;
-import javax.enterprise.inject.spi.InjectionPoint;
 import javax.enterprise.inject.spi.InjectionTarget;
 import javax.enterprise.inject.spi.ProcessInjectionTarget;
 import javax.enterprise.inject.spi.ProcessProducer;
-import javax.enterprise.inject.spi.ProcessProducerField;
-import javax.enterprise.inject.spi.ProcessProducerMethod;
 import javax.enterprise.inject.spi.Producer;
 
 import org.infinispan.config.Configuration;
 import org.infinispan.manager.CacheContainer;
 import org.infinispan.notifications.Listener;
-import org.jboss.weld.extensions.bean.generic.GenericLiteral;
+import org.jboss.weld.extensions.literal.GenericTypeLiteral;
 import org.jboss.weld.extensions.reflection.annotated.AnnotatedTypeBuilder;
 
 public class InfinispanExtension implements Extension
@@ -96,7 +91,7 @@ public class InfinispanExtension implements Extension
    private <X> AnnotatedType<X> makeGeneric(Class<X> clazz)
    {
       AnnotatedTypeBuilder<X> builder = new AnnotatedTypeBuilder<X>().readFromType(clazz);
-      builder.addToClass(new GenericLiteral(Infinispan.class));
+      builder.addToClass(new GenericTypeLiteral(Infinispan.class));
       return builder.create();
    }
    

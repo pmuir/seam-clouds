@@ -8,24 +8,22 @@ import javax.enterprise.inject.spi.InjectionTarget;
 import javax.inject.Inject;
 
 import org.infinispan.AdvancedCache;
-import org.infinispan.Cache;
+import org.infinispan.config.Configuration;
 import org.infinispan.manager.CacheContainer;
 import org.jboss.weld.extensions.bean.generic.Generic;
-import org.jboss.weld.extensions.bean.generic.GenericProduct;
+import org.jboss.weld.extensions.bean.generic.GenericConfiguration;
 
-import com.google.inject.spi.InjectionPoint;
-
-@Generic(Infinispan.class)
+@GenericConfiguration(Infinispan.class)
 public class GenericCacheManager<K, V>
 {
 
    @Inject
    private CacheContainer defaultCacheContainer;
 
-   @Inject
+   @Inject @Generic
    private Infinispan infinispan;
    
-   @Inject @GenericProduct
+   @Inject @Generic
    private Instance<CacheContainer> cacheContainer;
    
    @Inject

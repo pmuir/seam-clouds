@@ -12,6 +12,7 @@ import org.jboss.seam.infinispan.Infinispan;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -23,7 +24,7 @@ import org.junit.runner.RunWith;
  * @author Pete Muir
  * 
  */
-@RunWith(Arquillian.class)
+@RunWith(Arquillian.class) @Ignore
 public class XMLConfiguredCacheContainerTest
 {
 
