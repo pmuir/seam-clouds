@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.seam.jclouds;
+package org.jboss.seam.jclouds.blobstore;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
@@ -24,26 +24,31 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
+import java.util.Properties;
 
-import org.jboss.weld.extensions.bean.generic.GenericConfiguration;
+import org.jboss.weld.extensions.bean.generic.GenericType;
 
 /**
- * Configure a JClouds Service
+ * Configure a JClouds blob store service
  * 
- * @author pmuir
- *
+ * @author Pete Muir
+ * 
  */
 
 @Retention(RUNTIME)
-@Target({METHOD, FIELD, PARAMETER, TYPE})
-@GenericConfiguration
-public @interface CloudService
+@Target({ METHOD, FIELD, PARAMETER, TYPE })
+@GenericType(Properties.class)
+public @interface JCloudsBlobStore
 {
-   
+
    /**
-    * The provider you are using (see http://code.google.com/p/jclouds/wiki/BlobStore#Supported_Providers)
+    * The provider you are using (see
+    * http://code.google.com/p/jclouds/wiki/JCloudsComputeService
+    * #Supported_Providers)
     * 
     */
-   String value();
-   
+   String provider();
+
+   String container() default "";
+
 }

@@ -18,7 +18,7 @@
 
    <properties>
       <seam.version>3.0.0.b01</seam.version>
-      <jclouds.version>1.0-beta-6</jclouds.version>
+      <jclouds.version>1.0-beta-7</jclouds.version>
       <infinispan.version>4.1.0.FINAL</infinispan.version>
       <arquillian.version>1.0.0.Alpha4</arquillian.version>
       <weld.version>1.1.0-SNAPSHOT</weld.version>
@@ -38,9 +38,16 @@
          </dependency>
          <dependency>
             <groupId>org.jclouds</groupId>
+            <artifactId>jclouds-compute</artifactId>
+            <version>${jclouds.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>org.jclouds</groupId>
             <artifactId>jclouds-aws</artifactId>
             <version>${jclouds.version}</version>
          </dependency>
+         
+         <!-- Weld Extensions -->
          <dependency>
             <groupId>org.jboss.weld</groupId>
             <artifactId>weld-extensions</artifactId>
@@ -55,6 +62,7 @@
          <groupId>javax.enterprise</groupId>
          <artifactId>cdi-api</artifactId>
          <version>${cdi.api.version}</version>
+         <scope>provided</scope>
       </dependency>
 
       <dependency>
@@ -72,16 +80,26 @@
       <dependency>
          <groupId>org.jclouds</groupId>
          <artifactId>jclouds-blobstore</artifactId>
+         <optional>true</optional>
       </dependency>
+      
+      <dependency>
+         <groupId>org.jclouds</groupId>
+         <artifactId>jclouds-compute</artifactId>
+         <optional>true</optional>
+      </dependency>
+      
       <dependency>
          <groupId>org.jclouds</groupId>
          <artifactId>jclouds-aws</artifactId>
+         <scope>test</scope>
       </dependency>
 
       <dependency>
          <groupId>org.infinispan</groupId>
          <artifactId>infinispan-core</artifactId>
          <version>${infinispan.version}</version>
+         <optional>true</optional>
          <exclusions>
             <exclusion>
                <groupId>log4j</groupId>
