@@ -8,10 +8,7 @@ import javax.inject.Inject;
 import org.infinispan.AdvancedCache;
 import org.jboss.arquillian.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.seam.infinispan.Infinispan;
 import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -59,12 +56,20 @@ public class NotificationTest
       assertEquals("Edinburgh", cache1.get("pete"));
       assertEquals(1, observers1.getCacheStartedEventCount());
       assertEquals("cache1", observers1.getCacheStartedEvent().getCacheName());
+      assertEquals(1, observers1.getCacheEntryCreatedEventCount());
+      assertEquals("pete", observers1.getCacheEntryCreatedEvent().getKey());
       
       // Check cache isolation for events 
       cache2.put("mircea", "London");
       assertEquals("London", cache2.get("mircea"));
       assertEquals(1, observers2.getCacheStartedEventCount());
       assertEquals("cache2", observers2.getCacheStartedEvent().getCacheName());
+      
+      // Remove something
+      cache1.remove("pete");
+      assertEquals(1, observers1.getCacheEntryRemovedEventCount());
+      assertEquals("pete", observers1.getCacheEntryRemovedEvent().getKey());
+      assertEquals("Edinburgh", observers1.getCacheEntryRemovedEvent().getValue());
       
       // Manually stop cache1 to check that we are notified :-)
       assertEquals(0, observers1.getCacheStoppedEventCount());
