@@ -3,3 +3,4 @@
 .settings
 .project
 src/main/java/META-INF/MANIFEST.MF
+src/test/resources/aws.properties
