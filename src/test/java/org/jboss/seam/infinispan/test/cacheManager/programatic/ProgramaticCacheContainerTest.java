@@ -9,7 +9,6 @@ import org.infinispan.AdvancedCache;
 import org.jboss.arquillian.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -19,7 +18,7 @@ import org.junit.runner.RunWith;
  * @author Pete Muir
  * @see Config
  */
-@RunWith(Arquillian.class) @Ignore
+@RunWith(Arquillian.class)
 public class ProgramaticCacheContainerTest
 {
    
@@ -33,11 +32,14 @@ public class ProgramaticCacheContainerTest
    
    @Inject @Small
    private AdvancedCache<?, ?> smallCache;
+
+   @Inject SmallCacheObservers observers;
    
    @Test
    public void testSmallCache()
    {
       assertEquals(7, smallCache.getConfiguration().getEvictionMaxEntries());
+      assertEquals(1, observers.getCacheStartedEventCount());
    }
    
 }

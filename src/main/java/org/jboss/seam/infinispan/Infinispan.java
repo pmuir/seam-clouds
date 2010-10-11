@@ -26,13 +26,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import org.infinispan.config.Configuration;
-import org.jboss.weld.extensions.bean.generic.GenericConfiguration;
+import org.infinispan.manager.CacheContainer;
 import org.jboss.weld.extensions.bean.generic.GenericType;
 
 /**
- * Configure an Infinispan Cache
+ * Configure an Infinispan Cache. By default, Seam will use the {@link CacheContainer} 
  * 
- * @author pmuir
+ * @author Pete Muir
  *
  */
 

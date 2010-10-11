@@ -9,7 +9,6 @@ import org.infinispan.AdvancedCache;
 import org.jboss.arquillian.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -20,7 +19,6 @@ import org.junit.runner.RunWith;
  * @see Config
  */
 @RunWith(Arquillian.class)
-@Ignore
 public class ExternalCacheContainerTest
 {
    
