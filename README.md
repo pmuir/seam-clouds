@@ -20,29 +20,7 @@ Running the tests
 -----------------
 
 To run the tests, you must have an AWS account, and sign up for S3. Having done this,
-add this profile to your `settings.xml`:
+create the file src/test/resources/aws.properties
 
-      <profile>
-         <id>aws</id>
-         <activation>
-            <property>
-               <name>aws</name>
-               <value>!false</value>
-            </property>
-         </activation>
-         <properties>
-            <!-- Your AWS Access Key ID -->
-            <aws.accessKeyId></aws.accessKeyId>
-            <!-- Your AWS Secret Access Key-->
-            <aws.secretAccessKey></aws.secretAccessKey>
-         </properties>
-      </profile>
-
-
-Running the tests from Eclipse
-------------------------------
-
-To run the tests from Eclipse, you'll need to configure two _Program Arguments_ in the test's _Run Configuration_:
-
-    -Daws.accessKeyId=<AccessKeyId>
-    -Daws.secretAccessKey=<SecretAccessKey>
+    jclouds.identity <AccessKeyId>
+    jclouds.credential <SecretAccessKey>
